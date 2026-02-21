@@ -9,7 +9,7 @@
                 <a href="{{ route('organizations.create') }}" class="btn btn-primary me-7">নতুন প্রতিষ্ঠান যুক্ত করুন</a>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table">
+                <table class="table" id="dataTable">
                     <thead>
                         <tr>
                             <th>প্রতিষ্ঠানের নাম</th>

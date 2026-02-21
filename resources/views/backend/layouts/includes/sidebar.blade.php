@@ -35,7 +35,7 @@
 
     <ul class="menu-inner py-1 ps ps--active-y">
         <!-- Dashboards -->
-        <li class="menu-item active open">
+        <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }}">
             <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-smart-home"></i>
                 <div>ড্যাশবোর্ড</div>
@@ -47,7 +47,7 @@
             <span class="menu-header-text">Main pages</span>
         </li>
         <!-- Forms -->
-         <li class="menu-item">
+         <li class="menu-item {{ Route::is('organizations.*') ? 'active' : '' }}">
             <a href="{{ route('organizations.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-message"></i>
                 <div>প্রতিষ্ঠান</div>

@@ -37,4 +37,10 @@
 {{-- tagsinput --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+<script>
+    new DataTable('#dataTable');
+</script>
+
 @stack('scripts')
