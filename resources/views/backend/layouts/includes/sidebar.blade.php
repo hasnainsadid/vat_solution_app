@@ -48,7 +48,7 @@
         </li>
         <!-- Forms -->
          <li class="menu-item">
-            <a href="{{ route('dashboard') }}" class="menu-link">
+            <a href="{{ route('organizations.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-message"></i>
                 <div>প্রতিষ্ঠান</div>
             </a>
