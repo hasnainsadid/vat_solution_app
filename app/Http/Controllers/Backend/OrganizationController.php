@@ -50,9 +50,10 @@ class OrganizationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Organization $organization)
     {
-        //
+        $this->organizationService->show($organization);
+        return view('backend.pages.organization.show', compact('organization'));
     }
 
     /**

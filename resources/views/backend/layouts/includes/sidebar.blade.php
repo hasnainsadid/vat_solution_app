@@ -47,10 +47,16 @@
             <span class="menu-header-text">Main pages</span>
         </li>
         <!-- Forms -->
-         <li class="menu-item {{ Route::is('organizations.*') ? 'active' : '' }}">
+        <li class="menu-item {{ Route::is('organizations.*') ? 'active' : '' }}">
             <a href="{{ route('organizations.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-message"></i>
-                <div>প্রতিষ্ঠান</div>
+                <div>প্রতিষ্ঠানসমূহ</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Route::is('organizations.*') ? 'active' : '' }}">
+            <a href="{{ route('organizations.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-message"></i>
+                <div>পণ্যসমূহ</div>
             </a>
         </li>
         <!-- pages -->

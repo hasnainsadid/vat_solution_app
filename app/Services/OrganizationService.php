@@ -22,6 +22,11 @@ class OrganizationService
         return $organization;
     }
 
+    public function show(Organization $organization)
+    {
+        return $organization;
+    }
+
     public function update($request, Organization $organization)
     {
         $organization->name = $request->name;
