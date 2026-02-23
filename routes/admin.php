@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\OrganizationController;
+use App\Http\Controllers\Backend\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([
@@ -14,4 +15,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('organizations', OrganizationController::class);
+    Route::resource('products', ProductController::class);
 });

@@ -54,61 +54,71 @@
                         @endif
                     </div>
                 </div>
-
-                {{-- <div class="row mt-5">
-                <div class="col-md">
-                    <a href="{{ route('organizations.edit', $organization->id) }}"
-                       class="btn btn-warning">
-                        সম্পাদনা করুন
-                    </a>
-
-                    <form action="{{ route('organizations.destroy', $organization->id) }}"
-                          method="POST"
-                          class="d-inline"
-                          onsubmit="return confirm('আপনি কি নিশ্চিত?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
-                            মুছে ফেলুন
-                        </button>
-                    </form>
-                </div>
-            </div> --}}
-
             </div>
         </div>
 
         <div class="card mt-5">
             <div class="card-body">
-                <h5 class="card-title">প্রতিষ্ঠানের পণ্যসমূহ</h5>
-                <div class="table-responsive text-nowrap">
-                    <table class="table table-hover text-center" id="dataTable">
-                        <thead>
-                            <tr>
-                                <th>ক্রমিক নং</th>
-                                <th>পণ্যের নাম</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @forelse ($organization->members as $member)
-                                <tr>
-                                    <td>{{ $member->name }}</td>
-                                    <td>
-                                        <a href="{{ route('organizations.show', $member->id) }}"
-                                           class="btn btn-primary">
-                                            বিস্তারিত
-                                        </a>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="5" class="text-center">No members found.</td>
-                                </tr>
-                            @endforelse --}}
-                        </tbody>
-                    </table>
+                <div class="d-flex">
+                    <h5 class="card-title">প্রতিষ্ঠানের পণ্যসমূহ</h5>
+                    <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#addProductModal" data-id="{{ $organization->id }}" >নতুন পণ্য যুক্ত করুন</button>
                 </div>
+                <table class="table table-hover" id="dataTable">
+                    <thead>
+                        <tr>
+                            {{-- <th>ক্রমিক নং</th> --}}
+                            <th>পণ্যের নাম</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($products as $key => $product)
+                            <tr>
+                                {{-- <td>{{ $key ++ }}</td> --}}
+                                <td>{{ $product->name }}</td>
+                                <td>
+                                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">
+                                        বিস্তারিত
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{-- Add Product Modal --}}
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">নতুন পণ্য যুক্ত করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('products.store') }}" method="post" class="needs-validation" novalidate>
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" name="source" value="modal">
+                        <div class="mb-6">
+                            <label class="form-label" for="org_id">প্রতিষ্ঠানের নাম <span class="text-danger">*</span></label>
+                            <select name="organization_id" id="org_id" class="form-select" required>
+                                <option value="{{ $organization->id }}" selected>{{ $organization->name }}</option>
+                            </select>
+                            <div class="invalid-feedback">প্রতিষ্ঠানের নাম আবশ্যক</div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="form-label" for="name">পণ্যের নাম <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="প্রতিষ্ঠানের নাম লিখুন" required />
+                            <div class="invalid-feedback">পণ্যের নাম আবশ্যক</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল করুন</button>
+                        <button type="submit" class="btn btn-primary">সংরক্ষণ করুন</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

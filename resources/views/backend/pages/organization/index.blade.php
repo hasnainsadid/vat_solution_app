@@ -20,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @forelse ($organizations as $organization)
+                        @foreach ($organizations as $organization)
                             <tr>
                                 <td>{{ $organization->name }}</td>
                                 <td>{{ $organization->address }}</td>
@@ -56,11 +56,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center">No organizations found.</td>
-                            </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>

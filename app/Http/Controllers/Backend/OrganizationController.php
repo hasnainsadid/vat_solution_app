@@ -43,7 +43,7 @@ class OrganizationController extends Controller
     public function store(OrganizationRequest $request)
     {
         $this->organizationService->store($request);
-        notify()->success('Organization has been created successfully.');
+        notify()->success('প্রতিষ্ঠান সফলভাবে নিবন্ধন করা হয়েছে।');
         return redirect()->route('organizations.index');
     }
 
@@ -52,8 +52,9 @@ class OrganizationController extends Controller
      */
     public function show(Organization $organization)
     {
+        $products = $organization->products()->get();
         $this->organizationService->show($organization);
-        return view('backend.pages.organization.show', compact('organization'));
+        return view('backend.pages.organization.show', compact('organization', 'products'));
     }
 
     /**
@@ -70,7 +71,7 @@ class OrganizationController extends Controller
     public function update(OrganizationRequest $request, Organization $organization)
     {
         $this->organizationService->update($request, $organization);
-        notify()->success('Organization has been updated successfully.');
+        notify()->success('প্রতিষ্ঠান সফলভাবে আপডেট করা হয়েছে।');
         return redirect()->route('organizations.index');
     }
 
@@ -80,7 +81,7 @@ class OrganizationController extends Controller
     public function destroy(Organization $organization)
     {
         $this->organizationService->destroy($organization);
-        notify()->success('Organization has been deleted successfully.');
+        notify()->success('প্রতিষ্ঠান সফলভাবে ডিলিট করা হয়েছে।');
         return redirect()->route('organizations.index');
     }
 }

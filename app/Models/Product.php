@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Organization extends Model
+class Product extends Model
 {
     protected $guarded = [];
 
-    public function products()
+    public function organization()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Organization::class);
     }
 }

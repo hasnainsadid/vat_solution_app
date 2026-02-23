@@ -53,8 +53,8 @@
                 <div>প্রতিষ্ঠানসমূহ</div>
             </a>
         </li>
-        <li class="menu-item {{ Route::is('organizations.*') ? 'active' : '' }}">
-            <a href="{{ route('organizations.index') }}" class="menu-link">
+        <li class="menu-item {{ Route::is('products.*') ? 'active' : '' }}">
+            <a href="{{ route('products.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-message"></i>
                 <div>পণ্যসমূহ</div>
             </a>
