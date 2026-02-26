@@ -58,14 +58,14 @@ class CacheTableSeeder extends Seeder
             6 => 
             array (
                 'key' => 'laravel-cache-fb6f3f3e6cd1eef80b0cb863c26af4f5',
-                'value' => 'i:2;',
-                'expiration' => 1771742943,
+                'value' => 'i:1;',
+                'expiration' => 1771832141,
             ),
             7 => 
             array (
                 'key' => 'laravel-cache-fb6f3f3e6cd1eef80b0cb863c26af4f5:timer',
-                'value' => 'i:1771742943;',
-                'expiration' => 1771742943,
+                'value' => 'i:1771832141;',
+                'expiration' => 1771832141,
             ),
         ));
         

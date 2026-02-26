@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\MaterialPurchaseRegisterController;
 use App\Http\Controllers\Backend\OrganizationController;
 use App\Http\Controllers\Backend\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -16,4 +17,5 @@ Route::middleware([
 
     Route::resource('organizations', OrganizationController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('material-purchase-registers', MaterialPurchaseRegisterController::class);
 });

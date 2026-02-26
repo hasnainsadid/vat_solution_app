@@ -42,8 +42,8 @@
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 data-bs-parent="#khataAccordion">
                                 <div class="accordion-body">
-                                    <a href="#">Entry the Khata Number of the Organization for this product.</a> <br> <br>
-                                    <a href="#">view of the khata</a>
+                                    <a href="{{ route('material-purchase-registers.create', ['product' => $product->id]) }}">Entry the Khata Number of the Organization for this product.</a> <br /> <br /> 
+                                    <a href="{{ route('material-purchase-registers.index') }}">view of the khata</a>
                                 </div>
                             </div>
                         </div>
