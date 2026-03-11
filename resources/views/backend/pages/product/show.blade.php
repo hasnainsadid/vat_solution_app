@@ -30,38 +30,68 @@
             @endif
             @if ($product->organization->type == 2)
                 <div class="card-body">
-                    <div class="accordion accordion-flush row" id="khataAccordion">
-                        <div class="accordion-item col-md-6" style="border: none">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    6.1
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                data-bs-parent="#khataAccordion">
-                                <div class="accordion-body">
-                                    <a href="{{ route('material-purchase-registers.create', ['product' => $product->id]) }}">Entry the Khata Number of the Organization for this product.</a> <br /> <br /> 
-                                    <a href="{{ route('material-purchase-registers.index') }}">view of the khata</a>
+                    <div class="row">
+
+                        <!-- 6.1 -->
+                        <div class="col-md-6">
+                            <div class="accordion accordion-flush" id="accordionOne">
+
+                                <div class="accordion-item" style="border: none;">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            6.1
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                        data-bs-parent="#accordionOne">
+
+                                        <div class="accordion-body">
+                                            <a
+                                                href="{{ route('material-purchase-registers.create', ['product' => $product->id]) }}">
+                                                Entry the Khata Number of the Organization for this product.
+                                            </a>
+                                            <br><br>
+
+                                            <a
+                                                href="{{ route('material-purchase-registers.index', ['product' => $product->id]) }}">
+                                                View of the Khata
+                                            </a>
+                                        </div>
+
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
-                        <div class="accordion-item col-md-6" style="border: none">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    6.2
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                    demonstrate the <code>.accordion-flush</code> class. This is the second item’s accordion
-                                    body. Let’s imagine this being filled with some actual content.</div>
+
+
+                        <!-- 6.2 -->
+                        <div class="col-md-6">
+                            <div class="accordion accordion-flush" id="accordionTwo">
+
+                                <div class="accordion-item" style="border: none;">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            6.2
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                        data-bs-parent="#accordionTwo">
+
+                                        <div class="accordion-body">
+                                            Placeholder content for this accordion.
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
                 </div>
             @endif

@@ -6,9 +6,9 @@
         {{-- information section --}}
         <div class="d-flex justify-content-between">
             <div class="company_info" style="font-size: 14px; line-height: .7;">
-                <p>নাম: eikhane company name hobe</p>
-                <p>ঠিকানা: eikhane company address hobe</p>
-                <p> নিবন্ধন নং: eikhane company registration number hobe</p>
+                <p>নাম: {{ @$product->organization->name }}</p>
+                <p>ঠিকানা: {{ @$product->organization->address }}</p>
+                <p> নিবন্ধন নং: {{ @$product->organization->bin_no }}</p>
             </div>
             <div class="text-center">
                 গণপ্রজাতন্ত্রী বাংলাদেশ সরকার &nbsp; &nbsp; &nbsp; জাতীয় রাজস্ব বোর্ড, ঢাকা
@@ -18,6 +18,7 @@
             </div>
             <div class="" style="text-align: right">
                 <h4>মুসক-৬.১</h4>
+                <p>{{ @$product->name }}</p>
             </div>
         </div>
 
@@ -93,7 +94,7 @@
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ \Carbon\Carbon::parse($item->entry_date)->format('d-m-Y') }}</td>
-                            <td>{{ $item->opening_qty }}</td>
+                            <td>{{ $item->opening_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->opening_value }}</td>
                             <td>{{ $item->challan_or_bill_no }}</td>
                             <td>{{ \Carbon\Carbon::parse($item->challan_date)->format('d-m-Y') }}</td>
@@ -101,15 +102,15 @@
                             <td>{{ $item->supplier_address }}</td>
                             <td>{{ $item->supplier_registration_no }}</td>
                             <td>{{ $item->product_name }}</td>
-                            <td>{{ $item->purchase_qty }}</td>
+                            <td>{{ $item->purchase_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->purchase_value }}</td>
                             <td>{{ $item->supplementary_duty }}</td>
                             <td>{{ $item->vat_amount }}</td>
-                            <td>{{ $item->total_qty }}</td>
+                            <td>{{ $item->total_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->total_value }}</td>
-                            <td>{{ $item->used_qty }}</td>
+                            <td>{{ $item->used_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->used_value }}</td>
-                            <td>{{ $item->closing_qty }}</td>
+                            <td>{{ $item->closing_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->closing_value }}</td>
                             <td>{{ $item->remark }}</td>
                         </tr>

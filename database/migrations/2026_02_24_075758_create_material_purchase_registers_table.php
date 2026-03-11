@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('material_purchase_registers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             // Basic Info
             $table->date('entry_date')->nullable();
 
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('product_name')->nullable();
 
             $table->decimal('purchase_qty', 15, 2)->nullable();
+            $table->string('unit')->nullable();
             $table->decimal('purchase_value', 15, 2)->nullable();
             $table->decimal('supplementary_duty', 15, 2)->nullable();
             $table->decimal('vat_amount', 15, 2)->nullable();

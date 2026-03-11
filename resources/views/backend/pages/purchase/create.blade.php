@@ -20,6 +20,7 @@
                         <div class="card-body">
                             <h5 class="card-title">বেসিক তথ্য</h5>
                             <div class="row mb-6">
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <div class="col-md-4">
                                     <label class="form-label" for="entry_date">তারিখ <span
                                             class="text-danger">*</span></label>
@@ -28,12 +29,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">প্রারম্ভিক জের (পরিমাণ)</label>
-                                    <input type="text" class="form-control" name="opening_qty" />
+                                    <input type="text" class="form-control" name="opening_qty" value="{{ $opening_qty }}" />
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">প্রারম্ভিক জের (মূল্য)</label>
-                                    <input type="number" step="0.01" class="form-control" name="opening_value"
-                                        placeholder="0.00" />
+                                    <input type="number" step="0.01" class="form-control" name="opening_value" value="{{ $opening_value }}"/>
                                 </div>
                             </div>
                         </div>
@@ -61,9 +61,8 @@
                                     <input type="text" class="form-control" name="supplier_name" required />
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">সরবরাহকারীর নিবন্ধন (BIN/NID) <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="supplier_registration_no" required/>
+                                    <label class="form-label">সরবরাহকারীর নিবন্ধন (BIN/NID)</label>
+                                    <input type="text" class="form-control" name="supplier_registration_no"/>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">সরবরাহকারীর ঠিকানা <span
@@ -73,7 +72,7 @@
                             </div>
 
                             <div class="row mb-6">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <label class="form-label">উপকরণের বিবরণ <span
                                             class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="product_name"
@@ -85,6 +84,11 @@
                                     <input type="text" class="form-control" name="purchase_qty" required/>
                                 </div>
                                 <div class="col-md-3">
+                                    <label class="form-label">পরিমাণের একক <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="unit" required/>
+                                </div>
+                                <div class="col-md-3">
                                     <label class="form-label">মূল্য (কর ব্যতীত) <span
                                             class="text-danger">*</span></label>
                                     <input type="number" step="0.01" class="form-control" name="purchase_value" required/>
@@ -93,7 +97,7 @@
 
                             <div class="row mb-6">
                                 <div class="col-md-6">
-                                    <label class="form-label">সম্পূরক শুল্ক (যদি থাকে)</label>
+                                    <label class="form-label">সম্পূরক শুল্ক (যদি থাকে %)</label>
                                     {{-- <input type="number" step="0.01" class="form-control" name="supplementary_duty" /> --}}
                                     {{-- <select name="supplementary_duty" id="supplementary_duty" class="form-select">
                                         <option value="" selected disabled>সম্পূরক শুল্ক নির্বাচন করুন</option>
@@ -102,7 +106,7 @@
                                         <option value="0.075">7.5%</option>
                                         <option value="0.15">15%</option>
                                     </select> --}}
-                                    <input type="text" class="form-control" name="suplimentary_duty" id="suplimentary_duty">
+                                    <input type="text" class="form-control" name="supplementary_duty" id="supplementary_duty">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="vat_amount">মূসক (VAT)</label>
@@ -124,11 +128,11 @@
                             <div class="row mb-6">
                                 <div class="col-md-6">
                                     <label class="form-label">ব্যবহৃত পরিমাণ</label>
-                                    <input type="text" class="form-control" name="used_qty" />
+                                    <input type="text" class="form-control" name="used_qty" value="00" />
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">ব্যবহৃত মূল্য</label>
-                                    <input type="number" step="0.01" class="form-control" name="used_value" />
+                                    <input type="number" step="0.01" class="form-control" name="used_value" value="0.00"/>
                                 </div>
                             </div>
                         </div>
