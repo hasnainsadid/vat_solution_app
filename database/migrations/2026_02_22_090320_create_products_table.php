@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('organization_id')->constrained()->cascadeOnDelete();
             $table->string('name')->nullable();
+            $table->enum('type_of_product', [0, 1, 2])->default(0)->comment('0: Product, 1: raw materials, 2: Manufactured Goods');
             $table->timestamps();
         });
     }

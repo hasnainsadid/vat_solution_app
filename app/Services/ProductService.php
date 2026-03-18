@@ -15,6 +15,7 @@ class ProductService
         $product = new Product();
         $product->name = $request->name;
         $product->organization_id = $request->organization_id;
+        $product->type_of_product = $request->type_of_product;
         $product->save();
 
         return $product;
@@ -29,6 +30,7 @@ class ProductService
     {
         $product->name = $request->name;
         $product->organization_id = $request->organization_id;
+        $product->type_of_product = $request->type_of_product;
         $product->save();
 
         return $product;

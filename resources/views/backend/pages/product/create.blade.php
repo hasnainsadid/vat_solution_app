@@ -16,17 +16,31 @@
                         <select name="organization_id" id="org_id" class="select2 form-select" required>
                             <option value="" selected disabled>প্রতিষ্ঠানের নাম নির্বাচন করুন</option>
                             @foreach ($organizations as $organization)
-                                <option value="{{ $organization->id }}">{{ $organization->name }}</option>
+                                <option value="{{ $organization->id }}" data-type="{{ $organization->type }}">
+                                    {{ $organization->name }}</option>
                             @endforeach
                         </select>
                         <div class="invalid-feedback">প্রতিষ্ঠানের নাম আবশ্যক</div>
                     </div>
+
+                    <div class="mb-6 d-none" id="type_of_product_wrapper">
+                        <label class="form-label" for="type_of_product">পণ্যের ধরন <span
+                                class="text-danger">*</span></label>
+                        <select name="type_of_product" id="type_of_product" class="form-select" required>
+                            <option value="" selected disabled>পণ্যের ধরন নির্বাচন করুন</option>
+                            <option value="1">কাঁচামাল</option>
+                            <option value="2">উৎপাদিত পণ্য</option>
+                        </select>
+                        <div class="invalid-feedback">পণ্যের ধরন আবশ্যক</div>
+                    </div>
+
                     <div class="mb-6">
                         <label class="form-label" for="name">পণ্যের নাম <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="প্রতিষ্ঠানের নাম লিখুন" required />
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="প্রতিষ্ঠানের নাম লিখুন" required />
                         <div class="invalid-feedback">পণ্যের নাম আবশ্যক</div>
                     </div>
-                    
+
                     <div class="row justify-content-end">
                         <div class="col-md">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">সংরক্ষণ করুন</button>
@@ -56,6 +70,18 @@
             $('.select2').select2({
                 width: '100%'
             });
+        });
+        $('#org_id').on('change', function() {
+            let selectedType = $(this).find(':selected').data('type');
+
+
+            if (selectedType == 2) {
+                $('#type_of_product_wrapper').removeClass('d-none');
+                $('#type_of_product').prop('required', true);
+            } else {
+                $('#type_of_product_wrapper').addClass('d-none');
+                $('#type_of_product').prop('required', false).val('');
+            }
         });
     </script>
 @endpush
