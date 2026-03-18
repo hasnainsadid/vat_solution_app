@@ -6,13 +6,9 @@
         <div class="card">
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-header">ক্রয় হিসাব পুস্তক (নতুন এন্ট্রি)</h5>
-                <a href="{{ route('material-purchase-registers.index') }}" class="btn btn-primary me-7">সকল রেকর্ড</a>
+                {{-- <a href="{{ route('material-purchase-registers.index') }}" class="btn btn-primary me-7">সকল রেকর্ড</a> --}}
             </div>
             <div class="card-body">
-                {{-- @php
-                    $product = App\Models\Product::with('organization')->get();
-                @endphp
-                @dump($product); --}}
                 <form action="{{ route('material-purchase-registers.store') }}" method="post" class="needs-validation"
                     novalidate>
                     @csrf
@@ -98,14 +94,6 @@
                             <div class="row mb-6">
                                 <div class="col-md-6">
                                     <label class="form-label">সম্পূরক শুল্ক (যদি থাকে %)</label>
-                                    {{-- <input type="number" step="0.01" class="form-control" name="supplementary_duty" /> --}}
-                                    {{-- <select name="supplementary_duty" id="supplementary_duty" class="form-select">
-                                        <option value="" selected disabled>সম্পূরক শুল্ক নির্বাচন করুন</option>
-                                        <option value="0.00">00</option>
-                                        <option value="0.05">5%</option>
-                                        <option value="0.075">7.5%</option>
-                                        <option value="0.15">15%</option>
-                                    </select> --}}
                                     <input type="text" class="form-control" name="supplementary_duty" id="supplementary_duty">
                                 </div>
                                 <div class="col-md-6">

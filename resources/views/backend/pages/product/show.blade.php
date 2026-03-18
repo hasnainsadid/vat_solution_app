@@ -83,7 +83,16 @@
                                         data-bs-parent="#accordionTwo">
 
                                         <div class="accordion-body">
-                                            Placeholder content for this accordion.
+                                            <a
+                                                href="{{ route('material-sale-registers.create', ['product' => $product->id]) }}">
+                                                Entry the Khata Number of the Organization for this product.
+                                            </a>
+                                            <br><br>
+
+                                            <a
+                                                href="{{ route('material-sale-registers.index', ['product' => $product->id]) }}">
+                                                View of the Khata
+                                            </a>
                                         </div>
 
                                     </div>

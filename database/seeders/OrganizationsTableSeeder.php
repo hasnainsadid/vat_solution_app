@@ -49,6 +49,16 @@ class OrganizationsTableSeeder extends Seeder
                 'created_at' => '2026-02-22 06:59:14',
                 'updated_at' => '2026-02-22 06:59:14',
             ),
+            3 => 
+            array (
+                'id' => 5,
+                'name' => 'Shali dulavai Enterprise',
+                'address' => 'Plot 54, Road 6, Block D, Aftabnagar, Dhaka 1212',
+                'bin_no' => '000956931-0298',
+                'type' => '2',
+                'created_at' => '2026-02-26 16:58:36',
+                'updated_at' => '2026-02-26 16:58:36',
+            ),
         ));
         
         

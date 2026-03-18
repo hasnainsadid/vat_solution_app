@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('entry_date')->nullable();
 
             // Opening Stock
-            $table->string('opening_qty')->nullable();
+            $table->decimal('opening_qty', 15, 2)->nullable();
             $table->decimal('opening_value', 15, 2)->nullable();
 
             // Purchase Info

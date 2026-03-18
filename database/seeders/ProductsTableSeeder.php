@@ -75,6 +75,14 @@ class ProductsTableSeeder extends Seeder
                 'created_at' => '2026-02-22 13:22:26',
                 'updated_at' => '2026-02-22 13:22:26',
             ),
+            7 => 
+            array (
+                'id' => 8,
+                'organization_id' => 5,
+                'name' => 'Rice',
+                'created_at' => '2026-02-26 16:59:17',
+                'updated_at' => '2026-02-26 16:59:17',
+            ),
         ));
         
         

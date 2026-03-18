@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'ক্রয় হিসাব পুস্তক (মূসক-৬.১)')
+@section('title', 'বিক্রয় হিসাব পুস্তক (মূসক-৬.২)')
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
 
@@ -12,12 +12,12 @@
             </div>
             <div class="text-center">
                 গণপ্রজাতন্ত্রী বাংলাদেশ সরকার &nbsp; &nbsp; &nbsp; জাতীয় রাজস্ব বোর্ড, ঢাকা
-                <h1> ক্রয় হিসাব পুস্তক </h1>
+                <h1> বিক্রয় হিসাব পুস্তক </h1>
                 <p>(পণ্য বা সেবা প্রক্রিয়াকরণের সম্পৃক্ত এমন নিবন্ধিত বা তালিকাভুক্ত ব্যক্তির জন্য প্রযোজ্য)</p>
-                <h4>[ বিধি ৪০(১) এর দফা (ক) এবং ৪১ এর দফা (ক) দ্রষ্টব্য ]</h4>
+                <h4>[ বিধি ৪০ এর উপ-বিধি (১) এর দফা (খ) এবং বিধি ৪১ এর দফা (ক) দ্রষ্টব্য ]</h4>
             </div>
             <div class="" style="text-align: right">
-                <h4>মুসক-৬.১</h4>
+                <h4>মুসক-৬.২</h4>
                 <p>{{ @$product->name }}</p>
             </div>
         </div>
@@ -29,41 +29,50 @@
             <table class="table vat-table" style="border: 1px solid black !important;">
                 <thead style="text-align: center;">
                     <tr>
-                        <th colspan="22" style="font-size: 22px;">পণ্য/সেবার উপকরণ ক্রয়</th>
+                        <th colspan="22" style="font-size: 22px;">পণ্য/সেবার উপকরণ বিক্রয়</th>
                     </tr>
                     <tr>
                         <th rowspan="3">ক্রমিক নং</th>
                         <th rowspan="3">তারিখ</th>
-                        <th colspan="2">মজুত উপকরণের প্রারম্ভিক জের</th>
-                        <th colspan="10" style="text-align: center">ক্রয়কৃত উপকরণ</th>
-                        <th colspan="2">মোট উপকরণের পরিমাণ</th>
-                        <th colspan="2">পণ্য প্রস্তুত/প্রক্রিয়াকরণে উপকরণের ব্যবহার</th>
-                        <th colspan="2">উপকরণের প্রারম্ভিক জের</th>
-                        <th colspan="2">মন্তব্য</th>
+                        <th colspan="2">উৎপাদিত পণ্য/সেবার প্রারম্ভিক জের</th>
+                        <th colspan="2">উৎপাদন</th>
+                        <th colspan="2">মোট উৎপাদিত পণ্য/সেবা </th>
+                        <th colspan="3">ক্রেতা/সরবরাহগ্রহীতা</th>
+                        <th colspan="2">চালান পত্রের বিবরণ</th>
+                        <th colspan="5">বিক্রিত/সরবরাহকৃত পণ্যের বিবরণ</th>
+                        <th colspan="2">পণ্যের প্রারম্ভিক জের</th>
+                        <th rowspan="3">মন্তব্য</th>
 
                     </tr>
                     <tr>
                         <th rowspan="2">পরিমাণ একক</th>
                         <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
-                        <th rowspan="2">চালান পত্র/বিল অব এন্ট্রি নং</th>
+                        <th rowspan="2">পরিমাণ একক</th>
+                        <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
+                        <th rowspan="2">পরিমাণ একক</th>
+                        <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
+                        {{-- <th rowspan="2">চালান পত্র/বিল অব এন্ট্রি নং</th> --}}
+                        <th rowspan="2">নাম</th>
+                        <th rowspan="2">ঠিকানা</th>
+                        <th rowspan="2">নিবন্ধন/তালিকাভুক্তি/জাতীয় পরিচয়পত্র নং</th>
+                        <th rowspan="2">নম্বর</th>
                         <th rowspan="2">তারিখ</th>
-                        <th colspan="3">বিক্রেতা/ সরবরাহকারী</th>
                         <th rowspan="2">বিবরণ</th>
                         <th rowspan="2">পরিমাণ</th>
-                        <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
+                        <th rowspan="2">করযোগ্য মূল্য</th>
                         <th rowspan="2">সম্পূরক শুল্ক (যদি থাকে)</th>
                         <th rowspan="2">মূসক</th>
                         <th rowspan="2">পরিমাণ একক</th>
                         <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
-                        <th rowspan="2">পরিমাণ একক</th>
+                        {{-- <th rowspan="2">পরিমাণ একক</th>
                         <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
                         <th rowspan="2">পরিমাণ একক</th>
-                        <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th>
+                        <th rowspan="2">মূল্য (সকল প্রকার কর ব্যতীত)</th> --}}
                     </tr>
                     <tr>
-                        <th>নাম</th>
+                        {{-- <th>নাম</th>
                         <th>ঠিকানা</th>
-                        <th>নিবন্ধন/তালিকাভুক্তি/জাতীয় পরিচয়পত্র নং</th>
+                        <th>নিবন্ধন/তালিকাভুক্তি/জাতীয় পরিচয়পত্র নং</th> --}}
                     </tr>
                     <tr>
                         <th>১</th>
@@ -72,24 +81,24 @@
                         <th>৪</th>
                         <th>৫</th>
                         <th>৬</th>
-                        <th>৭</th>
-                        <th>৮</th>
+                        <th>৭=৩+৫</th>
+                        <th>৮=৪+৬</th>
                         <th>৯</th>
                         <th>১০</th>
                         <th>১১</th>
                         <th>১২</th>
                         <th>১৩</th>
                         <th>১৪</th>
-                        <th>১৫ (৩+১১)</th>
-                        <th>১৬ (৪+১২)</th>
+                        <th>১৫</th>
+                        <th>১৬</th>
                         <th>১৭</th>
                         <th>১৮</th>
-                        <th>১৯</th>
-                        <th>২০</th>
+                        <th>১৯=৭-১৫</th>
+                        <th>২০=৮-১৬</th>
                         <th>২১</th>
                     </tr>
                 </thead>
-                <tbody>
+                {{-- <tbody>
                     @foreach ($purchases as $key => $item)
                         <tr>
                             <td>{{ ++$key }}</td>
@@ -115,7 +124,7 @@
                             <td>{{ $item->remark }}</td>
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
         </div>
     </div>
