@@ -98,33 +98,33 @@
                         <th>২১</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($purchases as $key => $item)
+                <tbody>
+                    @foreach ($sales as $key => $item)
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ \Carbon\Carbon::parse($item->entry_date)->format('d-m-Y') }}</td>
                             <td>{{ $item->opening_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->opening_value }}</td>
-                            <td>{{ $item->challan_or_bill_no }}</td>
-                            <td>{{ \Carbon\Carbon::parse($item->challan_date)->format('d-m-Y') }}</td>
-                            <td>{{ $item->supplier_name }}</td>
-                            <td>{{ $item->supplier_address }}</td>
-                            <td>{{ $item->supplier_registration_no }}</td>
-                            <td>{{ $item->product_name }}</td>
-                            <td>{{ $item->purchase_qty }} {{ $item->unit }}</td>
-                            <td>{{ $item->purchase_value }}</td>
+                            <td>{{ $item->production_qty }}</td>
+                            <td>{{ $item->production_value }}</td>
+                            <td>{{ $item->total_production_qty }} {{ $item->unit }}</td>
+                            <td>{{ $item->total_production_value }}</td>
+                            <td>{{ $item->customer_name }}</td>
+                            <td>{{ $item->customer_address }}</td>
+                            <td>{{ $item->customer_registration_no }}</td>
+                            <td>{{ $item->invoice_no }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->invoice_date)->format('d-m-Y') }}</td>
+                            <td>{{ $item->product_description }}</td>
+                            <td>{{ $item->sale_qty }} {{ $item->unit }}</td>
+                            <td>{{ $item->taxable_value }}</td>
                             <td>{{ $item->supplementary_duty }}</td>
                             <td>{{ $item->vat_amount }}</td>
-                            <td>{{ $item->total_qty }} {{ $item->unit }}</td>
-                            <td>{{ $item->total_value }}</td>
-                            <td>{{ $item->used_qty }} {{ $item->unit }}</td>
-                            <td>{{ $item->used_value }}</td>
                             <td>{{ $item->closing_qty }} {{ $item->unit }}</td>
                             <td>{{ $item->closing_value }}</td>
                             <td>{{ $item->remark }}</td>
                         </tr>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>

@@ -87,7 +87,7 @@
                             <div class="row mb-6">
                                 <div class="col-md-3">
                                     <label class="form-label">পণ্যের বিবরণ</label>
-                                    <input type="text" class="form-control" name="product_description" />
+                                    <input type="text" class="form-control" name="product_description" value="{{ $product->name }}" />
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">বিক্রয় পরিমাণ</label>
