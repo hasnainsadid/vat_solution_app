@@ -1,7 +1,7 @@
 <?php
 namespace App\DataTables;
 
-use App\Models\Product;
+use App\Models\Organization;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -9,24 +9,19 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class ProductDataTable extends DataTable
+class OrganizationDataTable extends DataTable
 {
-    /**
-     * Build the DataTable class.
-     *
-     * @param QueryBuilder<Product> $query Results from query() method.
-     */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('organization_name', function (Product $product) {
-                return $product->organization_name;
+            ->editColumn('type', function ($query) {
+                if($query->type == 1) {
+                    return "Commertial";
+                }
+                return "Industrial";
             })
-            ->addColumn('action', function (Product $product) {
-                return view('backend.pages.product.partials.action', compact('product'));
-            })
-            ->filterColumn('organization_name', function ($query, $keyword) {
-                $query->where('organizations.name', 'like', "%{$keyword}%");
+            ->addColumn('action', function (Organization $organization) {
+                return view('backend.pages.organization.partials.action', compact('organization'));
             })
             ->setRowId('id');
     }
@@ -34,13 +29,11 @@ class ProductDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      *
-     * @return QueryBuilder<Product>
+     * @return QueryBuilder<Organization>
      */
-    public function query(Product $model): QueryBuilder
+    public function query(Organization $model): QueryBuilder
     {
-        return $model->newQuery()
-            ->leftJoin('organizations', 'products.organization_id', '=', 'organizations.id')
-            ->select('products.*', 'organizations.name as organization_name');
+        return $model->newQuery();
     }
 
     /**
@@ -49,7 +42,7 @@ class ProductDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('product-table')
+            ->setTableId('organization-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->orderBy(1)
@@ -68,12 +61,13 @@ class ProductDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('name')->title('পণ্যের নাম'),
-            Column::make('organization_name')->title('প্রতিষ্ঠানের নাম'),
+            Column::make('name')->title('প্রতিষ্ঠানের নাম'),
+            Column::make('address')->title('প্রতিষ্ঠানের ঠিকানা'),
+            Column::make('bin_no')->title('প্রতিষ্ঠানের বিন নম্বর'),
+            Column::make('type')->title('প্রতিষ্ঠানের ধরণ'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-            //   ->width(60)
                 ->addClass('text-center'),
         ];
     }
@@ -83,6 +77,6 @@ class ProductDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Product_' . date('YmdHis');
+        return 'Organization_' . date('YmdHis');
     }
 }

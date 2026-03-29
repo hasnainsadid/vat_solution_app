@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\OrganizationDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrganizationRequest;
 use App\Models\Organization;
@@ -23,10 +24,12 @@ class OrganizationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(OrganizationDataTable $datatable)
     {
-        $organizations = $this->organizationService->index();
-        return view('backend.pages.organization.index', compact('organizations'));
+        // $organizations = $this->organizationService->index();
+        // return view('backend.pages.organization.index', compact('organizations'));
+
+        return $datatable->render('backend.pages.organization.index');
     }
 
     /**
