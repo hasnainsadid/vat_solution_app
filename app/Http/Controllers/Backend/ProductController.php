@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Organization;
@@ -23,10 +24,9 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Product $product)
+    public function index(ProductDataTable $datatable)
     {
-        $products = $this->productService->index($product);
-        return view('backend.pages.product.index', compact('products'));
+        return $datatable->render('backend.pages.product.index');
     }
 
     /**

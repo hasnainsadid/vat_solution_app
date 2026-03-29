@@ -5,9 +5,10 @@ use App\Models\Product;
 
 class ProductService
 {
-    public function index(Product $product)
+    public function index()
     {
-        return $product->with('organization')->get();
+        $product = Product::with('organization')->paginate(25);
+        return $product;
     }
 
     public function store($request)
