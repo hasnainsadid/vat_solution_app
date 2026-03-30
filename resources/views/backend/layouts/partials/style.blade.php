@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="{{ asset('backend') }}/vendor/libs/swiper/swiper.css">
 <link rel="stylesheet" href="{{ asset('backend') }}/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
 <link rel="stylesheet" href="{{ asset('backend') }}/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
 
 <!-- Page CSS -->
 <link rel="stylesheet" href="{{ asset('backend') }}/vendor/css/pages/cards-advance.css">
@@ -35,7 +36,7 @@
 {{-- izitoast --}}
 <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css"> --}}
 
 @stack('styles')
 
@@ -259,6 +260,36 @@
     :dir(rtl) #template-customizer:not(.template-customizer-open) {
         transform: translateX(-420px)
     }
+
+    .dt-buttons.btn-group{
+        margin: 0 15px 0 0 !important;
+    }
+
+    .dt-buttons .btn {
+    margin-left: 6px;
+    /* margin-right: 6px; */
+    /* margin-bottom: 6px; */
+
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.dataTables_filter input {
+    margin-left: 8px !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+}
+
+.dataTables_length select {
+    margin: 0 8px !important;
+    border-radius: 8px !important;
+}
 </style>
 
 <script src="{{ asset('backend') }}/js/config.js"></script>

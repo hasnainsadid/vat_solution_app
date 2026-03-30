@@ -11,8 +11,11 @@
             <div class="table-responsive text-nowrap">
                 {!! $dataTable->table(['class' => 'table'], true) !!}
 
-                {!! $dataTable->scripts() !!}
             </div>
         </div>
     </div>
-@endsection
+    @endsection
+    
+    @push('scripts')
+        {!! $dataTable->scripts() !!}
+    @endpush

@@ -4,18 +4,16 @@ namespace App\DataTables;
 use App\Models\Organization;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
-use Yajra\DataTables\Html\Builder as HtmlBuilder;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Services\DataTable;
+// use Yajra\DataTables\Services\DataTable;
 
-class OrganizationDataTable extends DataTable
+class OrganizationDataTable extends BaseDataTable
 {
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->editColumn('type', function ($query) {
-                if($query->type == 1) {
+                if ($query->type == 1) {
                     return "Commertial";
                 }
                 return "Industrial";
@@ -39,21 +37,7 @@ class OrganizationDataTable extends DataTable
     /**
      * Optional method if you want to use the html builder.
      */
-    public function html(): HtmlBuilder
-    {
-        return $this->builder()
-            ->setTableId('organization-table')
-            ->columns($this->getColumns())
-            ->minifiedAjax()
-            ->orderBy(1)
-            ->selectStyleSingle()
-            ->buttons([
-                Button::make('excel'),
-                Button::make('csv'),
-                Button::make('pdf'),
-                Button::make('print'),
-            ]);
-    }
+    
 
     /**
      * Get the dataTable columns definition.
@@ -70,6 +54,11 @@ class OrganizationDataTable extends DataTable
                 ->printable(false)
                 ->addClass('text-center'),
         ];
+    }
+
+    protected function getTableId(): string
+    {
+        return 'organization-table';
     }
 
     /**
